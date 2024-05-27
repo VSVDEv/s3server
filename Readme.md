@@ -1,4 +1,7 @@
-# Getting Started
+# S3 server emulator
+
+AWS S3 emulator Supports only REST Path style requests(limited list) https://documenter.getpostman.com/view/34667119/2sA3Qs9rxS
+
 
 
 ## Properties
