@@ -1,0 +1,297 @@
+{
+	"info": {
+		"_postman_id": "745f0e33-f825-4979-b8e1-9fd4cd8335ca",
+		"name": "bucket_main",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34667119"
+	},
+	"item": [
+		{
+			"name": "get bucket list",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "accessKey",
+							"value": "4",
+							"type": "string"
+						},
+						{
+							"key": "secretKey",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create bucket",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "region",
+							"value": "us-east-1",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "4",
+							"type": "string"
+						},
+						{
+							"key": "secretKey",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/sv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete bucket with files",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "region",
+							"value": "us-east-1",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "4",
+							"type": "string"
+						},
+						{
+							"key": "secretKey",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get bucket Objects",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "region",
+							"value": "us-east-1",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "4",
+							"type": "string"
+						},
+						{
+							"key": "secretKey",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save file to bucket",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "region",
+							"value": "us-east-1",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "4",
+							"type": "string"
+						},
+						{
+							"key": "secretKey",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/vsvdev/Desktop/err.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/sv/err.jpeg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sv",
+						"err.jpeg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get file from bucket",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "region",
+							"value": "us-east-1",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "4",
+							"type": "string"
+						},
+						{
+							"key": "secretKey",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sv/err.jpeg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sv",
+						"err.jpeg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete object from bucket",
+			"request": {
+				"auth": {
+					"type": "awsv4",
+					"awsv4": [
+						{
+							"key": "region",
+							"value": "us-east-1",
+							"type": "string"
+						},
+						{
+							"key": "accessKey",
+							"value": "4",
+							"type": "string"
+						},
+						{
+							"key": "secretKey",
+							"value": "1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/sv/err.jpeg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sv",
+						"err.jpeg"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
