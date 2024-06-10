@@ -8,7 +8,7 @@ USER 0
 
 
 # Copy the application's jar file into the container
-COPY target/s3server-1.0.0.jar /app/s3server-1.0.0.jar
+COPY target/s3server-1.0.1.jar /app/s3server-1.0.1.jar
 
 # Set default environment variables (optional)
 ENV AWS_PORT=7777
@@ -28,4 +28,4 @@ USER $CONTAINER_USER_ID
 EXPOSE ${AWS_PORT}
 
 # Run the jar file
-ENTRYPOINT ["java", "-jar", "/app/s3server-1.0.0.jar"]
+ENTRYPOINT ["java", "-jar", "/app/s3server-1.0.1.jar"]

@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>vsvdev.co.ua</groupId>
 	<artifactId>s3server</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>s3server</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -29,6 +29,14 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-s3</artifactId>
+			<version>1.12.730</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

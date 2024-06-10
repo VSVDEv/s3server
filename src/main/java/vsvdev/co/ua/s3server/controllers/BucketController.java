@@ -1,6 +1,7 @@
 package vsvdev.co.ua.s3server.controllers;
 
 
+import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.io.PathResource;
 import org.springframework.core.io.Resource;
@@ -33,8 +34,8 @@ public class BucketController {
 
 
     @PutMapping("/{bucketName}")
-    public ResponseEntity<String> createBucket(@PathVariable String bucketName,HttpServletRequest req) {
-        if (!validRequest(req,config)) {
+    public ResponseEntity<String> createBucket(@PathVariable String bucketName, HttpServletRequest req) {
+        if (!validRequest(req, config)) {
             return ResponseEntity.status(403).body("");
         }
         String bucket = service.createBucket(bucketName);
@@ -44,7 +45,7 @@ public class BucketController {
 
     @DeleteMapping("/{bucketName}")
     public ResponseEntity<String> deleteBucket(@PathVariable String bucketName, HttpServletRequest req) {
-        if (!validRequest(req,config)) {
+        if (!validRequest(req, config)) {
             return ResponseEntity.status(403).body("");
         }
         String bucket = service.deleteBucket(bucketName);
@@ -53,7 +54,7 @@ public class BucketController {
 
     @GetMapping("/")
     public ResponseEntity<List<String>> getS3BucketListing(HttpServletRequest req) {
-        if (!validRequest(req,config)) {
+        if (!validRequest(req, config)) {
             return ResponseEntity.status(403).body(Collections.emptyList());
         }
 
@@ -68,7 +69,7 @@ public class BucketController {
 
     @GetMapping("/{bucketName}")
     public ResponseEntity<List<String>> getS3BucketObjects(@PathVariable String bucketName, HttpServletRequest req) {
-        if (!validRequest(req,config)) {
+        if (!validRequest(req, config)) {
             return ResponseEntity.status(403).body(Collections.emptyList());
         }
 
@@ -80,24 +81,33 @@ public class BucketController {
         return ResponseEntity.ok(res);
     }
 
-    @PutMapping("/{bucketName}/{key}")
-    public ResponseEntity<String> uploadS3Object(@PathVariable String bucketName, @PathVariable String key,
-                                                  @RequestBody MultipartFile file, HttpServletRequest req) {
-        if (!validRequest(req,config)) {
+
+    @PutMapping(value = "/{bucketName}/{key}", consumes = {"text/plain", "application/octet-stream", "multipart/form-data", "application/json", "image/jpeg"})
+    public ResponseEntity<String> uploadS3ObjectFile(@PathVariable String bucketName, @PathVariable String key,
+                                                    @RequestBody(required = false) MultipartFile mFile,
+                                                    @RequestBody(required = false) String text,
+                                                    HttpServletRequest req) throws IOException, ServletException {
+        if (!validRequest(req, config)) {
             return ResponseEntity.status(403).body("");
         }
-        try {
-            service.saveFile(bucketName, key, file);
-        } catch (IOException e) {
-            return ResponseEntity.ok("Can't upload the file");
 
+
+        if (mFile != null) {
+            service.saveMultipart(bucketName, key, mFile);
+            return ResponseEntity.ok("Successfully uploaded the file");
+       }
+
+        if (text != null) {
+            service.saveText(bucketName, key, text);
+            return ResponseEntity.ok("Successfully uploaded the file");
         }
-        return ResponseEntity.ok("Successfully uploaded the file");
+        return ResponseEntity.ok("File is null, add file");
     }
+
 
     @GetMapping("/{bucketName}/{key}")
     public ResponseEntity<Resource> downloadS3Object(@PathVariable String bucketName, @PathVariable String key, HttpServletRequest req) {
-        if (!validRequest(req,config)) {
+        if (!validRequest(req, config)) {
             return ResponseEntity.status(403).contentType(MediaType.APPLICATION_OCTET_STREAM)
                     .header("Content-Disposition", "attachment; filename=" + key)
                     .body(null);
@@ -124,7 +134,7 @@ public class BucketController {
 
     @DeleteMapping("/{bucketName}/{key}")
     public ResponseEntity<String> deleteObject(@PathVariable String bucketName, @PathVariable String key, HttpServletRequest req) {
-        if (!validRequest(req,config)) {
+        if (!validRequest(req, config)) {
             return ResponseEntity.status(403).body("");
         }
 

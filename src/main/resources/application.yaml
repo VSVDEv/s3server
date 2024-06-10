@@ -6,7 +6,7 @@ aws:
   folder: ${AWS_FOLDER:~/s3}
 
 server:
-  port: ${AWS_PORT:7777}
+  port: ${AWS_PORT:8080}
 
 spring:
   banner:

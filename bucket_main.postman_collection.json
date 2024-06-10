@@ -13,13 +13,13 @@
 					"type": "awsv4",
 					"awsv4": [
 						{
-							"key": "accessKey",
-							"value": "4",
+							"key": "secretKey",
+							"value": "1",
 							"type": "string"
 						},
 						{
-							"key": "secretKey",
-							"value": "1",
+							"key": "accessKey",
+							"value": "4",
 							"type": "string"
 						}
 					]
@@ -44,11 +44,6 @@
 					"type": "awsv4",
 					"awsv4": [
 						{
-							"key": "region",
-							"value": "us-east-1",
-							"type": "string"
-						},
-						{
 							"key": "accessKey",
 							"value": "4",
 							"type": "string"
@@ -56,6 +51,11 @@
 						{
 							"key": "secretKey",
 							"value": "1",
+							"type": "string"
+						},
+						{
+							"key": "region",
+							"value": "us-east-1",
 							"type": "string"
 						}
 					]
@@ -72,14 +72,14 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/sv",
+					"raw": "http://localhost:8080/vsvdevdestination",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"sv"
+						"vsvdevdestination"
 					]
 				}
 			},
@@ -131,8 +131,8 @@
 					"type": "awsv4",
 					"awsv4": [
 						{
-							"key": "region",
-							"value": "us-east-1",
+							"key": "secretKey",
+							"value": "1",
 							"type": "string"
 						},
 						{
@@ -141,8 +141,8 @@
 							"type": "string"
 						},
 						{
-							"key": "secretKey",
-							"value": "1",
+							"key": "region",
+							"value": "us-east-1",
 							"type": "string"
 						}
 					]
@@ -150,14 +150,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/sv",
+					"raw": "http://localhost:8080/vsvdevsource",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"sv"
+						"vsvdevsource"
 					]
 				}
 			},
@@ -170,8 +170,8 @@
 					"type": "awsv4",
 					"awsv4": [
 						{
-							"key": "region",
-							"value": "us-east-1",
+							"key": "secretKey",
+							"value": "1",
 							"type": "string"
 						},
 						{
@@ -180,8 +180,8 @@
 							"type": "string"
 						},
 						{
-							"key": "secretKey",
-							"value": "1",
+							"key": "region",
+							"value": "us-east-1",
 							"type": "string"
 						}
 					]
@@ -192,22 +192,40 @@
 					"mode": "formdata",
 					"formdata": [
 						{
-							"key": "file",
+							"key": "mFile",
 							"type": "file",
 							"src": "/C:/Users/vsvdev/Desktop/err.jpg"
+						},
+						{
+							"key": "mFile",
+							"type": "file",
+							"src": "/C:/Users/vsvdev/Desktop/bage k8s.txt",
+							"disabled": true
+						},
+						{
+							"key": "mFile",
+							"type": "file",
+							"src": "/C:/Users/vsvdev/Desktop/aws_lambda/s3/template.yaml",
+							"disabled": true
+						},
+						{
+							"key": "mFile",
+							"type": "file",
+							"src": "/C:/Users/vsvdev/Desktop/s3server/bucket_main.postman_collection.json",
+							"disabled": true
 						}
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/sv/err.jpeg",
+					"raw": "http://localhost:8080/vsvdevsource/78tt.jpg",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"sv",
-						"err.jpeg"
+						"vsvdevsource",
+						"78tt.jpg"
 					]
 				}
 			},
@@ -239,15 +257,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/sv/err.jpeg",
+					"raw": "http://localhost:8080/vsvdevsource/t.jpeg",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"sv",
-						"err.jpeg"
+						"vsvdevsource",
+						"t.jpeg"
 					]
 				}
 			},
@@ -279,15 +297,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/sv/err.jpeg",
+					"raw": "http://localhost:8080/vsvdevsource/test2.txt",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "8080",
 					"path": [
-						"sv",
-						"err.jpeg"
+						"vsvdevsource",
+						"test2.txt"
 					]
 				}
 			},

@@ -35,7 +35,7 @@ server:
 
 mvn clean package
 
-docker build -t vsvdevua/s3server:1.0 .
+docker build -t vsvdevua/s3server:1.1 .
 
 ## Run image
 
@@ -49,7 +49,7 @@ docker run -p 8080:7788 \
   -e AWS_REGION=us-east-1 \
   -e AWS_FOLDER=/app/s3 \
   -v ${PWD}/s3:/app/s3 \
-  vsvdevua/s3server:1.0
+  vsvdevua/s3server:1.1
 
 ```
 
@@ -64,7 +64,7 @@ docker run -p 8080:7788 ^
   -e AWS_REGION=us-east-1 ^
   -e AWS_FOLDER=/app/s3 ^
   -v %cd%\s3:/app/s3 ^
-  vsvdevua/s3server:1.0
+  vsvdevua/s3server:1.1
 
 
 ```
@@ -102,7 +102,7 @@ docker run --env-file .env -p 8080:7788 vsvdev/s3server
 ## publish
 
 ```shell
-docker push vsvdevua/s3server:1.0
+docker push vsvdevua/s3server:1.1
 ```
 
 ## Docker hub
